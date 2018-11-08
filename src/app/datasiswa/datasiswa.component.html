@@ -1,0 +1,42 @@
+<h1>
+  datasiswa works!
+</h1>
+<input type="text" [(ngModel)]="id"><br>
+<input type="text" [(ngModel)]="nama"><br>
+<button (click)="update()">Update</button><br><br>
+<input type="number" [(ngModel)]="number"><br>
+<select [(ngModel)]="mtk">
+  <option value="+"> + </option>
+  <option value="-"> - </option>
+  <option value="*"> * </option>
+  <option value="/"> / </option>
+</select><br>
+<input type="number" [(ngModel)]="number2"><br>
+
+<div *ngIf="mtk === '+'">
+  <p>{{number+number2 | currency}}</p>
+</div>
+<div *ngIf="mtk === '-'">
+  <p>{{number-number2 | currency}}</p>
+</div>
+<div *ngIf="mtk === '*'">
+  <p>{{number*number2 | currency}}</p>
+</div>
+<div *ngIf="mtk === '/'">
+  <p>{{number/number2 | currency}}</p>
+</div>
+<br>
+<table>
+  <thead>
+    <tr>
+      <td>title</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of datalist">
+      <td>{{data.title}}</td>
+      <td><button (click)="edit(data)">Edit</button></td>
+      <td><button (click)="delete(data)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
